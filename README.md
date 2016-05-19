@@ -1,8 +1,8 @@
 [![Build Status](https://travis-ci.org/abtris/swagger-merge.svg?branch=master)](https://travis-ci.org/abtris/swagger-merge)
 
-# Swagger merge
+# Swagger merge Extensions
 
-Merge Swagger API Document and Swagger Extensions for AWS API Gateway
+This tool help have separate definition API and AWS API Gateway into 2 files and merge them for usage in AWS API Gateway.
 
 ## Installation
 
