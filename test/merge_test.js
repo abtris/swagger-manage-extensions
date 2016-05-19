@@ -15,3 +15,20 @@ describe('Take swagger api file and swagger extensions file and merge them toget
     assert.deepEqual(swagger.merge(apiFile, extensionsFile), returned);
   });
 });
+
+describe('Take swagger api file with swagger extensions and split them to extensions and api standalone', function(){
+  var returned;
+  before(function(){
+     returned = swagger.split(outputFile);
+  });
+  it ('Spliting files - Api check', function(){
+    var expectedApi = yaml.safeLoad(fs.readFileSync(apiFile));
+    var api = yaml.safeLoad(returned.api);
+    assert.deepEqual(expectedApi, api);
+  });
+  it ('Spliting files - Extensions check', function(){
+    var expectedExtensions = yaml.safeLoad(fs.readFileSync(extensionsFile));
+    var extensions = yaml.safeLoad(returned.extensions);
+    assert.deepEqual(expectedExtensions, extensions);
+  });
+});

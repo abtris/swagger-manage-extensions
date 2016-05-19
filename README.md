@@ -122,7 +122,9 @@ paths:
 
 We don't need integration details in generated documentation (for example: [apiary.io](https://apiary.io)).
 
-Out scripts merge files together and we can import them into AWS Gateway
+### Import to AWS API Gateway
+
+Out scripts merge files together and after than import them into AWS API Gateway.
 
 ```js
 var sme = require('swagger-merge-extensions');
@@ -134,9 +136,31 @@ var extensionsPath = "./test/fixtures/extensions.yml";
 fs.writeFileSync('api-full.yml', sme.merge( apiPath, extensionsPath));
 ```
 
-
-### Import to AWS API Gateway
+Import to AWS API Gateway using [awscli](https://aws.amazon.com/cli/).
 
 ```console
 aws apigateway put-rest-api  --rest-api-id $1 --mode overwrite --parameters {\"extensions\":\"integrations\"} --body file://./api.json
+```
+
+### Export from AWS API Gateway
+
+Export swagger file from AWS API Gateway using [awscli](https://aws.amazon.com/cli/).
+
+```console
+aws apigateway get-export --parameters {\"extensions\":\"integrations\"} --rest-api-id $1 --stage-name $2 --export-type swagger --accepts application/yml api.yml
+```
+
+You can use tool to split files:
+
+```js
+var sme = require('swagger-merge-extensions');
+var fs = require('fs');
+
+var apiPath = "./test/fixtures/expected.yml";
+
+var output = sme.split(apiPath);
+
+fs.writeFileSync('extensions.yml', output.extensions);
+fs.writeFileSync('api.yml', output.api);
+
 ```
