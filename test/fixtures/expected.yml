@@ -1,0 +1,91 @@
+---
+swagger: "2.0"
+info:
+  version: "2016-04-29T09:09:33Z"
+  title: "api-client"
+host: "api-behind-aws-gateway.example.com"
+schemes:
+- "https"
+paths:
+  /get/{vanity}:
+    get:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "authentication"
+        in: "header"
+        required: true
+        type: "string"
+      - name: "vanity"
+        in: "path"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/apiClientReponse"
+      x-amazon-apigateway-integration:
+        responses:
+          default:
+            statusCode: "200"
+        requestParameters:
+          integration.request.path.vanity: "method.request.path.vanity"
+          integration.request.header.authentication: "method.request.header.authentication"
+        httpMethod: "GET"
+        uri: "https://api.example.com/get/{vanity}"
+        type: "http"
+  /publish/{vanity}:
+    post:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "content_type"
+        in: "header"
+        required: false
+        type: "string"
+      - name: "authentication"
+        in: "header"
+        required: true
+        type: "string"
+      - name: "accept"
+        in: "header"
+        required: false
+        type: "string"
+      - name: "vanity"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "user_agent"
+        in: "header"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/apiClientReponse"
+      x-amazon-apigateway-integration:
+        responses:
+          default:
+            statusCode: "200"
+        requestParameters:
+          integration.request.path.vanity: "method.request.path.vanity"
+          integration.request.header.authentication: "method.request.header.authentication"
+        httpMethod: "POST"
+        uri: "https://api.example.com/publish/{vanity}"
+        type: "http"
+definitions:
+  apiClientReponse:
+    type: "object"
+    required:
+    - "code"
+    - "error"
+    - "message"
+    properties:
+      error:
+        type: "boolean"
+      message:
+        type: "string"
+      code:
+        type: "string"

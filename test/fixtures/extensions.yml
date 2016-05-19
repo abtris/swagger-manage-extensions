@@ -1,0 +1,26 @@
+---
+paths:
+  /get/{vanity}:
+    get:
+      x-amazon-apigateway-integration:
+        responses:
+          default:
+            statusCode: "200"
+        requestParameters:
+          integration.request.path.vanity: "method.request.path.vanity"
+          integration.request.header.authentication: "method.request.header.authentication"
+        httpMethod: "GET"
+        uri: "https://api.example.com/get/{vanity}"
+        type: "http"
+  /publish/{vanity}:
+    post:
+      x-amazon-apigateway-integration:
+        responses:
+          default:
+            statusCode: "200"
+        requestParameters:
+          integration.request.path.vanity: "method.request.path.vanity"
+          integration.request.header.authentication: "method.request.header.authentication"
+        httpMethod: "POST"
+        uri: "https://api.example.com/publish/{vanity}"
+        type: "http"

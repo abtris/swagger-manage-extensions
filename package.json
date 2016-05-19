@@ -1,0 +1,25 @@
+{
+  "name": "swagger-merge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test:unit": "mocha test/",
+    "test": "npm run lint && npm run test:unit",
+    "lint": "jshint */*.js"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "debug": "2.2.0",
+    "js-yaml": "3.6.1"
+  },
+  "devDependencies": {
+    "chai": "3.5.0",
+    "jshint": "2.9.2",
+    "mocha": "2.4.5"
+  }
+}
