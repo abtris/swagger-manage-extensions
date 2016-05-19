@@ -23,12 +23,12 @@ describe('Take swagger api file with swagger extensions and split them to extens
   });
   it ('Spliting files - Api check', function(){
     var expectedApi = yaml.safeLoad(fs.readFileSync(apiFile));
-    var api = returned.api;
+    var api = yaml.safeLoad(returned.api);
     assert.deepEqual(expectedApi, api);
   });
   it ('Spliting files - Extensions check', function(){
     var expectedExtensions = yaml.safeLoad(fs.readFileSync(extensionsFile));
-    var extensions = returned.extensions;
+    var extensions = yaml.safeLoad(returned.extensions);
     assert.deepEqual(expectedExtensions, extensions);
   });
 });
