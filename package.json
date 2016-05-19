@@ -1,5 +1,5 @@
 {
-  "name": "swagger-merge-extensions",
+  "name": "swagger-manage-extensions",
   "version": "1.0.2",
   "description": "",
   "main": "lib/",
@@ -13,10 +13,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/abtris/swagger-merge.git"
+    "url": "git+https://github.com/abtris/swagger-manage-extensions.git"
   },
   "bugs": {
-    "url": "https://github.com/abtris/swagger-merge/issues"
+    "url": "https://github.com/abtris/swagger-manage-extensions/issues"
   },
   "author": "Ladislav Prskavec <ladislav@prskavec.net>",
   "license": "MIT",

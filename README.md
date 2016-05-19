@@ -1,13 +1,13 @@
-[![Build Status](https://travis-ci.org/abtris/swagger-merge.svg?branch=master)](https://travis-ci.org/abtris/swagger-merge)
+# Swagger Manage Extensions
 
-# Swagger merge Extensions
+[![Build Status](https://travis-ci.org/abtris/swagger-merge.svg?branch=master)](https://travis-ci.org/abtris/swagger-merge)
 
 This tool help have separate definition API and AWS API Gateway into 2 files and merge them for usage in AWS API Gateway.
 
 ## Installation
 
 ```console
-npm install swagger-merge-extensions
+npm install swagger-manage-extensions
 ```
 
 ## Usage
@@ -127,7 +127,7 @@ We don't need integration details in generated documentation (for example: [apia
 Out scripts merge files together and after than import them into AWS API Gateway.
 
 ```js
-var sme = require('swagger-merge-extensions');
+var sme = require('swagger-manage-extensions');
 var fs = require('fs');
 
 var apiPath = "./test/fixtures/api.yml";
@@ -153,7 +153,7 @@ aws apigateway get-export --parameters {\"extensions\":\"integrations\"} --rest-
 You can use tool to split files:
 
 ```js
-var sme = require('swagger-merge-extensions');
+var sme = require('swagger-manage-extensions');
 var fs = require('fs');
 
 var apiPath = "./test/fixtures/expected.yml";
