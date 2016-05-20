@@ -164,3 +164,13 @@ fs.writeFileSync('extensions.yml', output.extensions);
 fs.writeFileSync('api.yml', output.api);
 
 ```
+
+### CLI
+
+```console
+bin/sme split api-full.yml api.yml extensions.yml
+```
+
+```console
+bin/sme merge api.yml extensions.yml api-full.yml
+```
