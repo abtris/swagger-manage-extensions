@@ -1,0 +1,36 @@
+#!/usr/bin/env node
+var fs = require('fs');
+var sme = require('../lib');
+// http://yargs.js.org/docs/
+require('yargs')
+  .usage('$0 <cmd> [args]')
+  .option('sourceFullApi', {
+    describe: 'input file with source Swagger file with Swagger extensions'
+  })
+  .option('outputFullApi', {
+    describe: 'output file with source Swagger file with Swagger extensions'
+  })
+  .option('sourceApi', {
+    describe: 'input file with source Swagger file without extensions'
+  })
+  .option('outputApi', {
+    describe: 'output file with source Swagger file without extensions'
+  })
+  .option('sourceExtensions', {
+    describe: 'input file with Swagger extensions only'
+  })
+  .option('outputExtensions', {
+    describe: 'output file with Swagger extensions only'
+  })
+  .command('split <sourceFullApi> <outputApi> <outputExtensions>', 'split Swagger API file', {}, function(argv) {
+    var output = sme.split(argv.sourceFullApi);
+    fs.writeFileSync(argv.outputExtensions, output.extensions);
+    fs.writeFileSync(argv.outputApi, output.api);
+  })
+  .command('merge <sourceApi> <sourceExtensions> <outputFullApi>', 'merge Swagger API file and Swagger Extensions file', {}, function(argv){
+    fs.writeFileSync(argv.outputFullApi, sme.merge( argv.sourceApi, argv.sourceExtensions));
+  })
+  .help('help')
+  .demand(1)
+  .strict()
+  .argv;
