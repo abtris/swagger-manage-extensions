@@ -2,6 +2,9 @@
   "name": "swagger-manage-extensions",
   "version": "1.0.3",
   "description": "Swagger Manage Extensions - merge/split API Description and AWS API Gateway Integration",
+  "bin": {
+      "sme": "bin/sme"
+  },
   "main": "lib/",
   "directories": {
     "test": "test"
