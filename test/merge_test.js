@@ -11,7 +11,7 @@ var extensionsFile = __dirname + "/fixtures/extensions.yml";
 describe('Take swagger api file and swagger extensions file and merge them together', function(){
   it ('Compare with output file', function(){
     var expected = fs.readFileSync(outputFile);
-    var returned = yaml.safeDump(yaml.safeLoad(expected.toString()));
+    var returned = yaml.dump(yaml.load(expected.toString()));
     assert.deepEqual(swagger.merge(apiFile, extensionsFile), returned);
   });
 });
@@ -22,13 +22,13 @@ describe('Take swagger api file with swagger extensions and split them to extens
      returned = swagger.split(outputFile);
   });
   it ('Spliting files - Api check', function(){
-    var expectedApi = yaml.safeLoad(fs.readFileSync(apiFile));
-    var api = yaml.safeLoad(returned.api);
+    var expectedApi = yaml.load(fs.readFileSync(apiFile));
+    var api = yaml.load(returned.api);
     assert.deepEqual(expectedApi, api);
   });
   it ('Spliting files - Extensions check', function(){
-    var expectedExtensions = yaml.safeLoad(fs.readFileSync(extensionsFile));
-    var extensions = yaml.safeLoad(returned.extensions);
+    var expectedExtensions = yaml.load(fs.readFileSync(extensionsFile));
+    var extensions = yaml.load(returned.extensions);
     assert.deepEqual(expectedExtensions, extensions);
   });
 });
