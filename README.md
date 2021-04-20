@@ -1,6 +1,6 @@
 # Swagger Manage Extensions
 
-[![Build Status](https://travis-ci.org/abtris/swagger-manage-extensions.svg?branch=master)](https://travis-ci.org/abtris/swagger-manage-extensions)
+[![Build Status](https://github.com/abtris/swagger-manage-extensions/actions/workflows/node.js.yaml/badge.svg)](https://github.com/abtris/swagger-manage-extensions/actions)
 
 This tool help have separate definition API and AWS API Gateway into 2 files and merge them for usage in AWS API Gateway.
 
