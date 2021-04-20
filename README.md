@@ -1,8 +1,6 @@
 # Swagger Manage Extensions
 
 [![Build Status](https://travis-ci.org/abtris/swagger-manage-extensions.svg?branch=master)](https://travis-ci.org/abtris/swagger-manage-extensions)
-[![Dependency Status](https://david-dm.org/abtris/swagger-manage-extensions.svg)](https://david-dm.org/abtris/swagger-manage-extensions)
-[![devDependency Status](https://david-dm.org/abtris/swagger-manage-extensions/dev-status.svg)](https://david-dm.org/abtris/swagger-manage-extensions#info=devDependencies)
 
 This tool help have separate definition API and AWS API Gateway into 2 files and merge them for usage in AWS API Gateway.
 
